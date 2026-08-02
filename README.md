@@ -87,7 +87,7 @@ Copy-Item -Recurse project-estimator-skill\skills\project-evaluator "$HOME\.clau
 
 ### 3. 你会得到什么
 
-先是 5-6 轮一问一答，然后是这样一份报告（节选）：
+最多约 8 轮一问一答（也可随时喊停直接出报告），然后是这样一份报告（节选）：
 
 ```markdown
 ## 📋 项目评估报告：考研打卡小程序
@@ -106,6 +106,29 @@ Copy-Item -Recurse project-estimator-skill\skills\project-evaluator "$HOME\.clau
 ```
 
 完整示例见 [`skills/project-evaluator/references/worked-examples.md`](skills/project-evaluator/references/worked-examples.md)。
+
+## 真实测试案例
+
+> 以下是一次真实评估的脱敏记录（被测者为零基础新手，完整对话存于 [`references/worked-examples.md`](skills/project-evaluator/references/worked-examples.md)），让你一眼看到这个 Skill 实际怎么工作。
+
+**被测项目**：模型安全预检工具 —— 把本地模型文件拖进工具，自动给红 / 黄 / 绿安全评级，帮用户在下载模型前避开被「投毒」的文件。
+
+**总体可行性评分：6.8 / 10** —— 方向靠谱、需求真实，但第一版范围还得再砍一刀才稳。
+
+| 维度 | 评级 | 一句话结论 |
+|------|------|-----------|
+| ① 需求与市场 | 🟡 | 痛点真实，但只触达 1 个真实用户 |
+| ② 方案与复杂度 | 🟡 | 面向用户的范围干净，实现工作量偏重 |
+| ③ 技术与资源 | 🟡 | 时间勉强，零基础有门槛 |
+| ④ 风险与依赖 | 🟢 | 无外部依赖，失败成本几乎为零 |
+| ⑤ 成功标准 | 🟡 | 标准可量化，但缺硬性时间点 |
+
+**⚠️ 建议调整后启动**
+
+- **关键风险**：第一版计划含「加载几 GB 模型做动态探测」，对零基础是隐形重活，可能让 MVP 永远做不完。
+- **调整即可开工**：第一版只做纯静态四检查（哈希校验 + 格式扫描 + 模板审计 + 元数据扫描），动态探测砍到 v2；并在界面上明示「本工具检测已知 / 浅层风险，不等同于绝对安全」。
+
+> 注意：最终评分与建议完全基于用户自己说出的信息，没有替他脑补市场数据或用户规模——这正是本 Skill「不编造」约束的体现。
 
 ## 目录结构
 
