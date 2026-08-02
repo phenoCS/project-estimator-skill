@@ -130,6 +130,11 @@ Copy-Item -Recurse project-estimator-skill\skills\project-evaluator "$HOME\.clau
 
 > 注意：最终评分与建议完全基于用户自己说出的信息，没有替他脑补市场数据或用户规模——这正是本 Skill「不编造」约束的体现。
 
+**另一案例 · AI 宝妈短视频账号 — ✅ 强烈建议启动（7.6 / 10）**
+非软件项目（内容号），需求已被 500+ 粉丝验证、方向已收敛、无需技术投入。最大坎在「变现未验证」和「0 预算画质受限」——第一步是先弄清主平台赚钱规则，定一个 30 天小目标。这证明评估框架能迁移到非代码想法。
+
+> 还有一个「造火箭」的离谱请求实测，验证了合规红线兜底（自制燃料被主动拦下、用户转安全路线），完整对话与报告见 [`references/worked-examples.md`](skills/project-evaluator/references/worked-examples.md) 的案例五。
+
 ## 目录结构
 
 ```
@@ -144,7 +149,7 @@ Copy-Item -Recurse project-estimator-skill\skills\project-evaluator "$HOME\.clau
             ├── question-bank.md            # 问题库：话术、选项、追问策略
             ├── evaluation-rubric.md        # 评估准则：五维判定标准与计分规则
             ├── report-template.md          # 报告模板
-            └── worked-examples.md          # 三个完整示例（启动/调整/放弃）
+            └── worked-examples.md          # 三个合成示例（启动/调整/放弃）+ 两个真实对抗测试案例
 ```
 
 采用渐进式披露：`SKILL.md` 保持精简，参考文档按需加载，不浪费上下文。
