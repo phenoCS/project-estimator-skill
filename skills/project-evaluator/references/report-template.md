@@ -83,3 +83,5 @@
 ① 帮你把第一版砍到最小可行范围
 ② 展开分析某一个风险的应对方案
 ③ 基于这份评估生成开发路线图
+
+> **用得怎么样？** 欢迎来 [GitHub Discussions](https://github.com/phenoCS/project-estimator-skill/discussions) 分享你的案例，或到 [Issues](https://github.com/phenoCS/project-estimator-skill/issues) 提反馈——尤其是「第几轮你不想答了」，这能帮我把提问做得更轻。
