@@ -109,7 +109,7 @@ Copy-Item -Recurse project-estimator-skill\skills\project-evaluator "$HOME\.clau
 
 ## 真实测试案例
 
-> 以下是一次真实评估的脱敏记录（被测者为零基础新手，完整对话存于 [`references/worked-examples.md`](skills/project-evaluator/references/worked-examples.md)），让你一眼看到这个 Skill 实际怎么工作。
+> 以下是真实评估的脱敏记录（被测者以「最差用户」视角实测，所有对话均在 **hy3 模型**下生成）。同一份 Skill 指令在不同厂商模型上的回复风格会有差异，以下结果仅供参考、不可直接套用到其他模型。完整对话存于 [`references/worked-examples.md`](skills/project-evaluator/references/worked-examples.md)，让你一眼看到这个 Skill 实际怎么工作。
 
 **被测项目**：模型安全预检工具 —— 把本地模型文件拖进工具，自动给红 / 黄 / 绿安全评级，帮用户在下载模型前避开被「投毒」的文件。
 
@@ -174,7 +174,7 @@ Copy-Item -Recurse project-estimator-skill\skills\project-evaluator "$HOME\.clau
 
 - **提 Issue**：评估结论不合理、问题话术别扭、报告看不懂，都欢迎反馈，请附上对话片段。
 - **提 PR**：改进 `SKILL.md` 的指令、补充 `references/` 中的风险模式或示例。请先在 Issue 中简单说明思路，PR 保持小而聚焦，并说明改动前后的效果差异。
-- **贡献案例**：真实的评估对话（脱敏后）是最有价值的贡献，可直接补充到 `worked-examples.md`。
+- **贡献案例**：真实的评估对话（脱敏后）是最有价值的贡献，可直接补充到 `worked-examples.md`。**请务必标注所用模型**（如 hy3 / Claude / GPT），因为同一份 Skill 指令在不同模型上的风格会有差异。
 
 ## 许可证
 
