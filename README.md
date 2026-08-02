@@ -1,0 +1,166 @@
+# Project Evaluator · 项目评估顾问
+
+> 给你的 Vibe Coding 项目请一位免费的 AI 架构师，在写第一行代码之前就避免烂尾。
+
+一个开源 **Agent Skill**：通过一轮引导式问答（每次只问一个问题），从 5 个维度评估你的项目想法，最后给出一份人人都看得懂的可行性报告和明确的「做 / 改 / 不做」建议。
+
+[![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
+![Type: Agent Skill](https://img.shields.io/badge/type-agent--skill-blue)
+
+---
+
+## 为什么需要它
+
+AI 编程助手让「有想法就能开做」变成现实，但大量项目在两周后停在了半路：
+
+- 功能越想越多，第一版就要做全平台、全角色，永远做不完；
+- 零基础却选了最难的形态，卡在登录、部署、支付上；
+- 核心数据靠爬别人的站，某天接口一变项目直接归零；
+- 说不清「做成了」是什么样子，于是永远没有完成的那一天。
+
+这些问题几乎都能在动手前的 10 分钟问答里发现。**Project Evaluator 做的就是这 10 分钟。**
+
+## 核心功能
+
+**① 智能引导式问答** — 每轮只问 1 个问题，并附带小白友好的选项。不懂就选「不知道」，不会被专业术语劝退。收集 6 类信息：项目愿景、目标用户、核心功能、技术与工具、资源投入、成功标准。
+
+**② 五维评估引擎** — 每个维度给出 🟢 健康 / 🟡 一般 / 🔴 高风险 的评级，且每条结论都必须对应你说过的话。
+
+| 维度 | 回答的问题 |
+|------|-----------|
+| ① 需求与市场 | 这个问题真实存在吗？有人愿意用吗？ |
+| ② 方案与复杂度 | 第一版能不能收敛成一个做得完的东西？ |
+| ③ 技术与资源 | 以你的水平、时间和预算，能撑到上线吗？ |
+| ④ 风险与依赖 | 有哪些会让项目直接停摆的坑？ |
+| ⑤ 成功标准 | 「做成了」的定义是否具体、能验证？ |
+
+**③ 一份看得懂的报告** — 执行摘要 · 总体评分（1-10）· 五维评级表 · 各维度理由 · 1-3 条关键风险与可执行建议 · 最终建议（强烈建议启动 / 建议调整后启动 / 强烈建议放弃）· 信息缺口。
+
+**④ 说人话、不编造** — 不用技术黑话，术语必须配大白话解释；只依据你提供的信息评估，不虚构市场数据和用户规模；即使是好想法也至少指出一条真实风险。
+
+## 快速开始
+
+### 1. 安装
+
+下载或克隆本仓库，把 `skills/project-evaluator` 整个文件夹复制到你的 AI 助手的 skills 目录：
+
+```bash
+git clone https://github.com/phenoCS/project-estimator-skill.git
+```
+
+| AI 助手 | 复制到（个人级） | 复制到（项目级） |
+|---------|----------------|----------------|
+| Claude Code | `~/.claude/skills/project-evaluator/` | `.claude/skills/project-evaluator/` |
+| CodeBuddy | `~/.codebuddy/skills/project-evaluator/` | `.codebuddy/skills/project-evaluator/` |
+| 其他支持 Agent Skills 的工具 | 参考该工具文档中的 skills 目录 | 同左 |
+
+macOS / Linux：
+
+```bash
+mkdir -p ~/.claude/skills
+cp -r project-estimator-skill/skills/project-evaluator ~/.claude/skills/
+```
+
+Windows（PowerShell）：
+
+```powershell
+New-Item -ItemType Directory -Force "$HOME\.claude\skills"
+Copy-Item -Recurse project-estimator-skill\skills\project-evaluator "$HOME\.claude\skills\"
+```
+
+安装后重启（或重新加载）AI 助手即可。
+
+### 2. 使用
+
+自然语言触发：
+
+```
+请帮我评估一下这个项目想法：我想做一个帮宠物店老板管理疫苗到期提醒的小程序。
+```
+
+其他有效说法：
+
+- 「我有个想法，帮我看看能不能做」
+- 「评估一下这个项目会不会烂尾」
+- 「这个 App 值得做吗？」
+- `/project-evaluator`（在支持命令式调用的工具中）
+
+### 3. 你会得到什么
+
+先是 5-6 轮一问一答，然后是这样一份报告（节选）：
+
+```markdown
+## 📋 项目评估报告：考研打卡小程序
+**总体可行性评分：6.0 / 10** —— 方向没问题，卡在功能太多、时间太紧。
+
+| 维度 | 评级 | 一句话结论 |
+|------|------|-----------|
+| ① 需求与市场 | 🟡 | 需求真实但同类免费产品很多 |
+| ② 方案与复杂度 | 🟡 | 5 个功能里混了两个「重活」 |
+| ③ 技术与资源 | 🔴 | 一个月时间明显不够 |
+| ④ 风险与依赖 | 🟡 | 依赖小程序平台审核 |
+| ⑤ 成功标准 | 🟢 | 「10 个同学在用」清晰可验证 |
+
+## ⚠️ 建议调整后启动
+调整这两点后即可开工：① 第一版只做「每日打卡」一个功能；② 上线时间从 4 周改到 6 周。
+```
+
+完整示例见 [`skills/project-evaluator/references/worked-examples.md`](skills/project-evaluator/references/worked-examples.md)。
+
+## 目录结构
+
+```
+仓库根目录/
+├── README.md
+├── LICENSE
+├── .gitignore
+└── skills/
+    └── project-evaluator/
+        ├── SKILL.md                        # 核心指令：目标、工作流、约束
+        └── references/
+            ├── question-bank.md            # 问题库：话术、选项、追问策略
+            ├── evaluation-rubric.md        # 评估准则：五维判定标准与计分规则
+            ├── report-template.md          # 报告模板
+            └── worked-examples.md          # 三个完整示例（启动/调整/放弃）
+```
+
+采用渐进式披露：`SKILL.md` 保持精简，参考文档按需加载，不浪费上下文。
+
+## 常见问题
+
+**它会替我做决定吗？**
+不会。它给出评级、理由和建议，最终决定权在你。评分规则公开在 `evaluation-rubric.md` 里，你可以随时追问「为什么是这个分」。
+
+**评估结果准吗？**
+它基于你提供的信息做结构化判断，作用是帮你把盲点摆到台面上，不是预言未来。信息给得越具体，结论越有参考价值。
+
+**只是自用小工具，也需要评估吗？**
+需要，而且规则对自用项目做了适配：不会因为「没有市场」就判高风险，重点会放在范围是否收敛、时间是否够用。
+
+**能评估已经在做的项目吗？**
+可以。直接说明当前进度，它会把已完成部分作为事实纳入评估。
+
+## 贡献指南
+
+欢迎任何形式的参与：
+
+- **提 Issue**：评估结论不合理、问题话术别扭、报告看不懂，都欢迎反馈，请附上对话片段。
+- **提 PR**：改进 `SKILL.md` 的指令、补充 `references/` 中的风险模式或示例。请先在 Issue 中简单说明思路，PR 保持小而聚焦，并说明改动前后的效果差异。
+- **贡献案例**：真实的评估对话（脱敏后）是最有价值的贡献，可直接补充到 `worked-examples.md`。
+
+## 许可证
+
+[MIT License](LICENSE)
+
+---
+
+<details>
+<summary><b>English Summary</b></summary>
+
+**Project Evaluator** is an open-source Agent Skill that acts as a free AI architecture advisor for your project idea. Before you write a single line of code, it runs a guided interview (one question at a time, beginner-friendly options), rates your idea across five dimensions — demand & market, scope & complexity, tech & resources, risk & dependencies, success criteria — with 🟢 / 🟡 / 🔴 ratings, and produces a jargon-free report: executive summary, 1-10 feasibility score, per-dimension reasoning, 1-3 key risks with actionable advice, and a clear **Go / Adjust / Stop** recommendation.
+
+**Install**: copy `skills/project-evaluator` into your assistant's skills directory (e.g. `~/.claude/skills/`).
+**Use**: "Evaluate my project idea: ..." or `/project-evaluator`.
+**License**: MIT.
+
+</details>
